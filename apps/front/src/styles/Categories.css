@@ -1,0 +1,21 @@
+.lmj-categories2 {
+
+	margin-left: 600px;
+	margin-top: 10px;
+	/* align-self: self-start; */
+	/* cursor: pointer; */
+	/* font-weight: 500; */
+	/* color: white; */
+	/* padding: 5px 10px; */
+	/* background-color: #31b572; */
+}
+
+
+.lmj-categories {
+	text-align: center;
+	padding-top: 30px;
+}
+
+.lmj-categories-select {
+	margin-right: 15px;
+}
