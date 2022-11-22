@@ -1,8 +1,9 @@
-# ft_transcendence
+# La maison jungle 
 
 
 
 # install pakckage
+
 
 npm install react --workspace=front
 npm install "package" --workspace="front | back"
