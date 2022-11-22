@@ -1,7 +1,8 @@
-.lmj-categories2 {
+.lmj-categories {
 
-	margin-left: 600px;
-	margin-top: 10px;
+	margin-left: 50px;
+	/* margin-top: 10px; */
+	padding-top: 30px;
 	/* align-self: self-start; */
 	/* cursor: pointer; */
 	/* font-weight: 500; */
@@ -11,7 +12,7 @@
 }
 
 
-.lmj-categories {
+.lmj-categories2 {
 	text-align: center;
 	padding-top: 30px;
 }

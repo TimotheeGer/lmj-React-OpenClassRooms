@@ -9,6 +9,11 @@ const quantityLabel : string [] = [
     'beaucoup'
 ]
 
+function Plantalert(scaleValue : number, careType : string) {
+
+    alert(`Cette plante requiert ${quantityLabel[scaleValue - 1]} ${careType === 'light' ? 'de lumière' : "d'arrosage"}`)
+}
+
 function CareScale(props: PropsWithRef<any>) {
     
     const scaleValue = props.arg
@@ -17,20 +22,16 @@ function CareScale(props: PropsWithRef<any>) {
     const symbole = isType === 'light' ? sun : water
 
     return (
-		<div onClick={() => Plantalert(scaleValue, isType)}>
+		<div>
             {range.map((rangeElem) =>
                 scaleValue >= rangeElem ?
                 <span key={rangeElem.toString()}>
-                    <img src ={symbole}/>
+                    <img src ={symbole} onClick={() => Plantalert(scaleValue, isType)}/>
                 </span> : null
             )}
         </div>
     )
 }
 
-function Plantalert(scaleValue : number, careType : string) {
-
-    alert(`Cette plante requiert ${quantityLabel[scaleValue - 1]} ${careType === 'light' ? 'de lumière' : "d'arrosage"}`)
-}
 
 export default CareScale

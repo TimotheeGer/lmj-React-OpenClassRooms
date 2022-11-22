@@ -15,9 +15,10 @@ type plant = {
 
 const PlantItem = (props: plant) => {
     return (
-        <li className="lmj-plant-item" onClick={() => handleClick(props.name)}>
-            <img src={props.cover} className="lmj-plant-item-cover" />
-            {props.name} {props.price}€
+        <li className="lmj-plant-item" >
+           <span className='lmj-plant-item-price'>{props.price}€</span>
+			<img className='lmj-plant-item-cover' src={props.cover} alt={`${props.name} cover`} />
+			{props.name}
             <div>
                 <CareScale careType='water' arg={props.water} />
                 <CareScale careType='light' arg={props.light} />

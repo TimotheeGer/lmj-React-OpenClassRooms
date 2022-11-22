@@ -1,4 +1,3 @@
-import React, { ReactElement } from 'react';
 import plantList, { Plant } from '../datas/plantList'
 import PlantItem from './PlantItem';
 import '../styles/ShoppingList.css'
@@ -6,9 +5,7 @@ import Categories from './Categories';
 import { useState } from 'react'
 
 
-function ShoppingList({cart, updateCart}: any) {
-
-    const [inputValue, setInputValue] = useState()
+function ShoppingList({cart, updateCart, inputValue, setInputValue}: any) {
 
     let tab = new  Set<string>();
     let categories : string[] = [];
@@ -40,26 +37,38 @@ function ShoppingList({cart, updateCart}: any) {
         }
     }
 
+    function filterPlant(plant : Plant) : any {
+
+        if (!inputValue || (inputValue === plant.category))
+        {
+            return (
+                
+            <div key={plant.id} >
+
+                <PlantItem
+                    name={plant.name}
+                    cover={plant.cover}
+                    id={plant.id}
+                    light={plant.light}
+                    water={plant.water}
+                    price={plant.price}
+                />
+                <button className='lmj-sales' onClick={() => addToCart(plant.name, plant.price)}>Ajouter</button>
+            
+             </div>   
+            )
+        }
+        else
+            return (null)
+    }
+
     return (
+
         <div className='lmj-shopping-list'>
 
             <Categories categories={categories} inputValue={inputValue} setInputValue={setInputValue} />
             <ul className='lmj-plant-list'>
-                {plantList.map((plant : Plant) => ( !inputValue || inputValue === plant.category ? ( 
-                    <div key={plant.id} >
-
-                        <PlantItem
-                            name={plant.name}
-                            cover={plant.cover}
-                            id={plant.id}
-                            light={plant.light}
-                            water={plant.water}
-                            price={plant.price}
-                        />
-                        <button className='lmj-sales' onClick={() => addToCart(plant.name, plant.price)}>Ajouter</button>
-
-                    </div> ) : null
-                ))}
+                {plantList.map((plant : Plant) => filterPlant(plant))}
             </ul>
         </div>
     )
